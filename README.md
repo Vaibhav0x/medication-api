@@ -130,7 +130,7 @@ Returns a simple success message to confirm the API is working:
 
 ```json
 {
-  "message": "API route working"
+  "message": "Data saved"
 }
 ```
 

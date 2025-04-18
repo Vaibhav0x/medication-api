@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('drugs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('medication_class_name_id')->constrained()->onDelete('cascade');
-            $table->string('type'); // associatedDrug or associatedDrug#2
+            $table->string('type'); 
             $table->string('name');
             $table->string('dose')->nullable();
             $table->string('strength');

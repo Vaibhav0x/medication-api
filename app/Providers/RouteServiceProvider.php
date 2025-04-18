@@ -7,9 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * This namespace is no longer required in Laravel 8+, unless you're using legacy route definitions.
-     */
+    
     public function boot()
     {
         $this->routes(function () {

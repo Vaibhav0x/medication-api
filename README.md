@@ -88,7 +88,7 @@ Ensure the following are installed on your machine:
 **POST** `/api/migration`
 **GET** `/api/migration`
 
-7. **Test the API using Postman**
+### Test the API using Postman
 
 - Method **POST** `http://127.0.0.1:8000/api/migrations/`
 

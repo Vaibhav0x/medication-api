@@ -20,7 +20,7 @@ Ensure the following are installed on your machine:
 1. **Clone the repository**
 
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/Vaibhav0x/medication-api.git
     cd medication-api
     ```
 
@@ -43,13 +43,7 @@ Ensure the following are installed on your machine:
     - Set `DB_CONNECTION` to your database (e.g., `mysql` or `sqlite`).
     - Set the `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` accordingly.
 
-4. **Generate an application key**
-
-    ```bash
-    php artisan key:generate
-    ```
-
-5. **Run database migrations**
+4. **Run database migrations**
 
     If your project includes migrations for setting up the database schema:
 
@@ -57,7 +51,19 @@ Ensure the following are installed on your machine:
     php artisan migrate
     ```
 
-6. **Install front-end dependencies (optional)**
+- If got any error then clean the cache or clear.
+ 
+    ```bash
+    php artisan optimize:clear
+
+    ```
+- If you list all the route.
+
+    ```bash
+    php artisan route:list
+    ```
+
+5. **Install front-end dependencies (optional)**
 
     If you have a front-end setup that uses npm or yarn, install the required dependencies.
 
@@ -65,7 +71,7 @@ Ensure the following are installed on your machine:
     npm install
     ```
 
-7. **Start the application**
+6. **Start the application**
 
     You can start the development server:
 
@@ -77,9 +83,48 @@ Ensure the following are installed on your machine:
 
 ## API Endpoints
 
-### 1. **Test API Route**
+### 1. **Migration API Route**
 
-**GET** `/api/test`
+**POST** `/api/migration`
+**GET** `/api/migration`
+
+7. **Test the API using Postman**
+
+- Method **POST** `http://127.0.0.1:8000/api/migrations/`
+
+- In body add the raw json data like this:
+```bash
+{
+  "medications": [
+    {
+      "medicationsClasses": [
+        {
+          "className": [
+            {
+              "associatedDrug": [
+                { "name": "asprin", "dose": "", "strength": "500 mg" }
+              ],
+              "associatedDrug#2": [
+                { "name": "somethingElse", "dose": "", "strength": "500 mg" }
+              ]
+            }
+          ],
+          "className2": [
+            {
+              "associatedDrug": [
+                { "name": "asprin", "dose": "", "strength": "500 mg" }
+              ],
+              "associatedDrug#2": [
+                { "name": "somethingElse", "dose": "", "strength": "500 mg" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 Returns a simple success message to confirm the API is working:
 
@@ -87,8 +132,11 @@ Returns a simple success message to confirm the API is working:
 {
   "message": "API route working"
 }
+```
 
+- Method **GET** `http://127.0.0.1:8000/api/migrations/`
 
+Returns the raw same data that you are given.
 
 ## License
 
